@@ -1,6 +1,7 @@
 <?php
 
 use EloquentORM\User;
+use Faker\Factory as Faker;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +15,40 @@ use EloquentORM\User;
 */
 
 Route::get('/create', function () {
+    $faker = Faker::create();
+
     $user = User::create([
-    	'name' => 'usuario2',
-    	'email' => 'user2@gmail.com',
+    	'name' => $faker->name,
+    	'email' => $faker->email,
     	'password' => bcrypt('1234'),
-    	'gender' => 'm',
-    	'biography' => 'nuevamente aprendiendo'
+    	'gender' => $faker->randomElement(['f', 'm']),
+    	'biography' => $faker->text(255)
     ]);
 
-    return 'Usuario guardado';
+    return $user;
 });
 
-Route::get('/update', function () {
-    $user = User::find(1);
-    $user->biography = 'modificando aprendiendo';
+Route::get('/read/{id}', function($id){
+    $user = User::find($id);
+    return $user;
+});
+
+Route::get('/update/{id}', function ($id) {
+    $faker = Faker::create();
+    $user = User::find($id);
+
+    $user->name = $faker->name;
+    $user->gender = $faker->randomElement(['f', 'm']);
+    $user->biography = $faker->text(255);
+    
     $user->save();
 
-    return 'Usuario Actualizado';
+    return $user;
+});
+
+Route::get('/delete/{id}', function($id){
+    $user = User::find($id);
+    $user->delete();
+
+    return 'Usuario eliminado';
 });
