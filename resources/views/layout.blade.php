@@ -15,20 +15,27 @@
 		<div class="container">
 			<a href="{{ route('home') }}" class="navbar-brand">Eloquent ORM</a>
 			<ul class="nav navbar-nav">
-				<li><a href="{{ route('home') }}">Home</a></li>
+				<li>
+					<a href="{{ route('home') }}">Home</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Consultas Eloquent
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{{ route('all') }}">
+								Todos los usuarios (All)
+							</a>
+						</li>
+					</ul>
+				</li>	
 			</ul>
 		</div>
 	</nav>
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Curso eloquent orm</h1>
-			<p>hola</p>
-		</div>
-	</div>
-	<div class="container">
-		@yield('content')
-	</div>
+	@yield('content')
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
