@@ -24,7 +24,7 @@ class QueryController extends Controller
         return view('query.methods', compact('title', 'users'));
     }
 
-     public function eloquentGetCustom()
+    public function eloquentGetCustom()
     {
         $users = User::where('gender', 'f')
                     ->get(['id', 'name', 'biography']);
@@ -32,10 +32,17 @@ class QueryController extends Controller
         return view('query.methods', compact('title', 'users'));
     }
 
-      public function eloquentDelete($id)
+    public function eloquentDelete($id)
     {
         $user = User::find($id);
         $user->delete();
         return view('pages.delete');
+    }
+
+    public function eloquentLists()
+    {
+        $users = User::orderBy('name', 'ASC')
+                    ->lists('name', 'id');
+        return view('query.lists', compact('users'));
     }
 }
