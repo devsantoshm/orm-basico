@@ -41,3 +41,17 @@
 		</li>
 	</ul>
 </li>
+
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		Eloquent avanzado
+		<span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a href="{{ route('orm-all') }}">
+				Todos los libros (All)
+			</a>
+		</li>
+	</ul>
+</li>

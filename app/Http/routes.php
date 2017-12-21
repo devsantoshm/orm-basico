@@ -1,5 +1,6 @@
 <?php
 
+use EloquentORM\Book;
 use EloquentORM\User;
 use Faker\Factory as Faker;
 
@@ -52,4 +53,34 @@ Route::get('/first-last', [
 Route::get('/paginate', [
     'as' => 'paginate',
     'uses' => 'QueryController@eloquentPaginate'
+]);
+
+// ORM AVANZADO
+Route::get('/orm-all', [
+    'as' => 'orm-all',
+    'uses' => 'OrmController@ormAll'
+]);
+
+Route::delete('/orm-delete/{id}', [
+    'as' => 'orm-delete',
+    'uses' => 'OrmController@ormDelete'
+]);
+
+Route::delete('/orm-restore/{id}', [
+    'as' => 'orm-restore',
+    'uses' => 'OrmController@ormRestore'
+]);
+
+Route::delete('/orm-forceDelete/{id}', [
+    'as' => 'orm-forceDelete',
+    'uses' => 'OrmController@ormForceDelete'
+]);
+/*Route::get('/registros-papelera', function(){
+    $books = Book::onlyTrashed()->get();
+    return $books;
+});*/
+
+Route::get('/books-trash', [
+    'as' => 'books-trash',
+    'uses' => 'OrmController@ormBooksTrashed'
 ]);

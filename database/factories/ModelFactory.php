@@ -21,3 +21,10 @@ $factory->define(EloquentORM\User::class, function (Faker\Generator $faker) {
         'remember_token' => $faker->randomElement([null, str_random(10)])
     ];
 });
+
+$factory->define(EloquentORM\Book::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'description' => $faker->text
+    ];
+});
