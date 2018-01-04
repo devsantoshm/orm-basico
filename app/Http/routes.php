@@ -66,6 +66,11 @@ Route::delete('/orm-delete/{id}', [
     'uses' => 'OrmController@ormDelete'
 ]);
 
+Route::delete('/orm-destroy', [
+    'as' => 'orm-destroy',
+    'uses' => 'OrmController@ormDestroy'
+]);
+
 Route::delete('/orm-restore/{id}', [
     'as' => 'orm-restore',
     'uses' => 'OrmController@ormRestore'

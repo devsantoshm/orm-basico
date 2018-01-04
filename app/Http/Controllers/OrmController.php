@@ -27,6 +27,37 @@ class OrmController extends Controller
         return redirect('orm-all');
     }
 
+    public function ormDestroy(Request $request)
+    {
+        $ids = $request->get('ids');
+
+        if (count($ids)) {
+            Book::destroy($ids);
+        }
+
+        $message = count($ids) . ' registros fueron enviados a la papelera';
+        Session::flash('message', $message);
+
+        return redirect('orm-all');
+    }
+
+     public function ormAllForceDelete(Request $request)
+    {
+        $ids = $request->get('ids');
+
+        if (count($ids)) {
+           for ($i=0; $i < count($ids); $i++) { 
+                $book = Book::withTrashed()->find($ids[$i]);
+                $book->forceDelete();
+           }
+        }
+
+        $message = count($ids) . ' registros fueron eliminados definitivamente';
+        Session::flash('message', $message);
+
+        return redirect('orm-all');
+    }
+
       public function ormRestore($id)
     {
         $book = Book::withTrashed()->find($id);
