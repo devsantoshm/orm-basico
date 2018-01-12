@@ -1,5 +1,6 @@
 @foreach ($books as $book)
 	<tr>
+		<td align="center"><input type="checkbox" class="sub_chk" data-id="{{ $book->id }}"></td>
 		<td>{{ $book->id }}</td>
 		<td>{{ $book->title }}</td>
 		<td>{{ $book->description }}</td>

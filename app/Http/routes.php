@@ -66,9 +66,9 @@ Route::delete('/orm-delete/{id}', [
     'uses' => 'OrmController@ormDelete'
 ]);
 
-Route::delete('/orm-destroy', [
-    'as' => 'orm-destroy',
-    'uses' => 'OrmController@ormDestroy'
+Route::delete('/orm-forceDelete/{id}', [
+    'as' => 'orm-forceDelete',
+    'uses' => 'OrmController@ormForceDelete'
 ]);
 
 Route::delete('/orm-restore/{id}', [
@@ -76,10 +76,15 @@ Route::delete('/orm-restore/{id}', [
     'uses' => 'OrmController@ormRestore'
 ]);
 
-Route::delete('/orm-forceDelete/{id}', [
-    'as' => 'orm-forceDelete',
-    'uses' => 'OrmController@ormForceDelete'
+Route::delete('ebooksDeleteAll', 'OrmController@deleteAll');
+Route::delete('ebooksforceDeleteAll', 'OrmController@forceDeleteAll');
+Route::delete('ebooksRestoreAll', 'OrmController@restoreAll');
+
+Route::delete('/orm-destroy', [
+    'as' => 'orm-destroy',
+    'uses' => 'OrmController@ormDestroy'
 ]);
+
 /*Route::get('/registros-papelera', function(){
     $books = Book::onlyTrashed()->get();
     return $books;
