@@ -107,7 +107,8 @@ class OrmController extends Controller
 
     public function ormhasMany()
     {
-        $categories = Category::get();
+        //traer categorias que tienen libros, llamando al metodo books de category
+        $categories = Category::has('books')->get(); 
         $title = 'Relación 1 a muchos (hasMany)';
         return view('orm.hasmany', compact('title', 'categories'));
     }
