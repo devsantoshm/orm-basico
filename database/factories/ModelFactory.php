@@ -25,6 +25,7 @@ $factory->define(EloquentORM\User::class, function (Faker\Generator $faker) {
 $factory->define(EloquentORM\Book::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->name,
-        'description' => $faker->text
+        'description' => $faker->text,
+        'category_id' => $faker->randomElement([1,2,3])// que pasaría si un libro no tiene una categoria relacionada
     ];
 });

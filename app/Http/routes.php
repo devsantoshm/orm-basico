@@ -94,3 +94,8 @@ Route::get('/books-trash', [
     'as' => 'books-trash',
     'uses' => 'OrmController@ormBooksTrashed'
 ]);
+
+Route::get('/ormhasmany', [
+    'as' => 'ormhasmany',
+    'uses' => 'OrmController@ormhasmany'
+]);

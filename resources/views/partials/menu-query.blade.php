@@ -53,5 +53,10 @@
 				Todos los libros (All)
 			</a>
 		</li>
+		<li>
+			<a href="{{ route('ormhasmany') }}">
+				Relación 1 a muchos (hasMany)
+			</a>
+		</li>
 	</ul>
 </li>

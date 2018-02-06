@@ -3,6 +3,7 @@
 namespace EloquentORM\Http\Controllers;
 
 use EloquentORM\Book;
+use EloquentORM\Category;
 use EloquentORM\Http\Controllers\Controller;
 use EloquentORM\Http\Requests;
 use Illuminate\Http\Request;
@@ -102,5 +103,12 @@ class OrmController extends Controller
         $books = Book::onlyTrashed()->get();
         $title = 'Libros en papelera (OnlyTrashed)';
         return view('orm.trashed', compact('title', 'books'));
+    }
+
+    public function ormhasMany()
+    {
+        $categories = Category::get();
+        $title = 'Relación 1 a muchos (hasMany)';
+        return view('orm.hasmany', compact('title', 'categories'));
     }
 }

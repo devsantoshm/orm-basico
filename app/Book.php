@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Book extends Model
 {
     use SoftDeletes; // haciendo uso dek trait, para eliminar de forma lógica y no fisica
+
+    public function category()
+    {
+    	return $this->belongsTo(Category::class);
+    }
 }
