@@ -13,6 +13,11 @@ class Category extends Model
 
     public function getNumBooksAttribute()
     {
-    	return count($this->books);
+    	return count($this->books->where('status', 'public'));
+    }
+
+    public function getBooksPublicAttribute()
+    {
+    	return $this->books->where('status', 'public');
     }
 }
