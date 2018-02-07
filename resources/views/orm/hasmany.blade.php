@@ -16,6 +16,7 @@
 				<li>
 					<strong>{{ $book->title }}</strong>
 					{{ $book->description }}
+					{{ $book->status }}
 				</li>
 			@endforeach
 		</ul>

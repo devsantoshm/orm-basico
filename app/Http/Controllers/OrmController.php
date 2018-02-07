@@ -108,7 +108,11 @@ class OrmController extends Controller
     public function ormhasMany()
     {
         //traer categorias que tienen libros, llamando al metodo books de category
-        $categories = Category::has('books')->get(); 
+        //$categories = Category::has('books')->get(); 
+        //mostrar la lista de categorias que tengan libros publicos
+        $categories = Category::whereHas('books', function($query){
+            $query->where('status', 'public');
+        })->get(); 
         $title = 'Relación 1 a muchos (hasMany)';
         return view('orm.hasmany', compact('title', 'categories'));
     }
