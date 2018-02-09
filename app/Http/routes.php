@@ -99,3 +99,8 @@ Route::get('/ormhasmany', [
     'as' => 'ormhasmany',
     'uses' => 'OrmController@ormhasmany'
 ]);
+
+Route::get('/ormmanytomany', [
+    'as' => 'ormmanytomany',
+    'uses' => 'OrmController@ormManyToMany'
+]);

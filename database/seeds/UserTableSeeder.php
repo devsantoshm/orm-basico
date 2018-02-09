@@ -17,6 +17,6 @@ class UserTableSeeder extends Seeder
     		'gender' => 'm'
     	]);
 
-        factory(User::class, 99)->create();
+        factory(User::class, 9)->create();
     }
 }

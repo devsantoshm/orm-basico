@@ -58,5 +58,10 @@
 				Relación 1 a muchos (hasMany)
 			</a>
 		</li>
+		<li>
+			<a href="{{ route('ormmanytomany') }}">
+				Relación muchos a muchos
+			</a>
+		</li>
 	</ul>
 </li>

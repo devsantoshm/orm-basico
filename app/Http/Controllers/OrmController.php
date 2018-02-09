@@ -6,6 +6,7 @@ use EloquentORM\Book;
 use EloquentORM\Category;
 use EloquentORM\Http\Controllers\Controller;
 use EloquentORM\Http\Requests;
+use EloquentORM\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -115,5 +116,12 @@ class OrmController extends Controller
         })->get(); 
         $title = 'Relación 1 a muchos (hasMany)';
         return view('orm.hasmany', compact('title', 'categories'));
+    }
+
+    public function ormManyToMany()
+    {
+        $users = User::all(); 
+        $title = 'Relación muchos a muchos';
+        return view('orm.manytomany', compact('title', 'users'));
     }
 }
