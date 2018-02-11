@@ -104,3 +104,13 @@ Route::get('/ormmanytomany', [
     'as' => 'ormmanytomany',
     'uses' => 'OrmController@ormManyToMany'
 ]);
+// vista de formulario de edición
+Route::get('edit-manytomany/{user_id}', [
+    'as' => 'getEdit',
+    'uses' => 'OrmController@editManyToMany'
+]);
+// procesar el formulario de edición
+Route::put('put-manytomany/{user_id}', [
+    'as' => 'putEdit',
+    'uses' => 'OrmController@putManyToMany'
+]);

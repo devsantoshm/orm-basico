@@ -124,4 +124,21 @@ class OrmController extends Controller
         $title = 'Relación muchos a muchos';
         return view('orm.manytomany', compact('title', 'users'));
     }
+
+    public function editManyToMany($user_id)
+    {
+        $user = User::find($user_id);
+        $books = Book::orderBy('title', 'ASC')->lists('title', 'id');
+        $title = 'Relación';
+        return view('orm.edit', compact('user', 'books', 'title'));
+    }
+
+    public function putManyToMany(Request $request, $user_id)
+    {
+        $user = User::find($user_id);
+        //$user->manyBooks()->detach();
+        //$user->manyBooks()->attach($request->get('books'));
+        $user->manyBooks()->sync($request->get('books'));
+        return redirect('ormmanytomany');
+    }
 }
